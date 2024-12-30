@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  cliente-service:
+    build:
+      context: ./cliente-service
+    ports:
+      - "8081:8081"
+    networks:
+      - spring-net
+
+  produto-service:
+    build:
+      context: ./produto-service
+    ports:
+      - "8082:8082"
+    networks:
+      - spring-net
+
+  eureka-server:
+    build:
+      context: ./eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - spring-net
+
+networks:
+  spring-net:
